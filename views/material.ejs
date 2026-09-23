@@ -1,0 +1,12 @@
+<%- include('partials/head', { titulo: material.nombre }) %>
+<article class="detalle">
+  <div class="imagen grande" style="background-image:url('<%= material.imagen_url || "/css/placeholder.svg" %>')"></div>
+  <div>
+    <% if (material.categoria) { %><span class="etiqueta"><%= material.categoria %></span><% } %>
+    <h1><%= material.nombre %></h1>
+    <p><%= material.descripcion %></p>
+    <p class="estado"><%= material.disponible ? 'Disponible' : 'No disponible' %></p>
+    <a href="/">Volver al catalogo</a>
+  </div>
+</article>
+<%- include('partials/foot') %>

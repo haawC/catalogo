@@ -1,0 +1,25 @@
+<%- include('partials/head', { titulo: 'Catalogo de materiales' }) %>
+<section class="hero">
+  <h1>Materiales destacados</h1>
+  <p>Seis materiales distintos en cada carga. <a href="/">Recargar</a></p>
+</section>
+
+<% if (!materiales.length) { %>
+  <p class="vacio">Todavia no hay materiales disponibles.</p>
+<% } %>
+
+<div class="grid">
+  <% materiales.forEach((m) => { %>
+    <article class="tarjeta">
+      <a href="/material/<%= m.id %>">
+        <div class="imagen" style="background-image:url('<%= m.imagen_url || "/css/placeholder.svg" %>')"></div>
+        <div class="cuerpo">
+          <% if (m.categoria) { %><span class="etiqueta"><%= m.categoria %></span><% } %>
+          <h2><%= m.nombre %></h2>
+          <p><%= (m.descripcion || '').slice(0, 120) %></p>
+        </div>
+      </a>
+    </article>
+  <% }) %>
+</div>
+<%- include('partials/foot') %>

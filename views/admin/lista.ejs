@@ -1,0 +1,27 @@
+<%- include('../partials/head', { titulo: 'Panel de administracion' }) %>
+<div class="encabezado">
+  <h1>Materiales (<%= materiales.length %>)</h1>
+  <a class="boton" href="/admin/nuevo">Nuevo material</a>
+</div>
+<table class="tabla">
+  <thead>
+    <tr><th>Nombre</th><th>Categoria</th><th>Disponible</th><th>Creado</th><th></th></tr>
+  </thead>
+  <tbody>
+    <% materiales.forEach((m) => { %>
+      <tr>
+        <td><%= m.nombre %></td>
+        <td><%= m.categoria || '-' %></td>
+        <td><%= m.disponible ? 'Si' : 'No' %></td>
+        <td><%= new Date(m.creado_en).toLocaleString('es') %></td>
+        <td class="acciones">
+          <a href="/admin/<%= m.id %>/editar">Editar</a>
+          <form method="post" action="/admin/<%= m.id %>/eliminar" onsubmit="return confirm('Eliminar material?')">
+            <button class="enlace peligro" type="submit">Eliminar</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+<%- include('../partials/foot') %>

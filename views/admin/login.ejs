@@ -1,0 +1,9 @@
+<%- include('../partials/head', { titulo: 'Acceso administracion' }) %>
+<form class="formulario" method="post" action="/admin/login">
+  <h1>Acceso al panel</h1>
+  <% if (error) { %><p class="error"><%= error %></p><% } %>
+  <label>Usuario<input name="usuario" required autofocus /></label>
+  <label>Contrasena<input name="password" type="password" required /></label>
+  <button type="submit">Entrar</button>
+</form>
+<%- include('../partials/foot') %>

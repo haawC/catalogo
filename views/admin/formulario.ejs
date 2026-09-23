@@ -1,0 +1,21 @@
+<%- include('../partials/head', { titulo: titulo }) %>
+<form class="formulario" method="post" action="<%= accion %>">
+  <h1><%= titulo %></h1>
+  <% if (errores.length) { %>
+    <ul class="error">
+      <% errores.forEach((e) => { %><li><%= e %></li><% }) %>
+    </ul>
+  <% } %>
+  <label>Nombre<input name="nombre" required value="<%= material.nombre || '' %>" /></label>
+  <label>Categoria<input name="categoria" value="<%= material.categoria || '' %>" /></label>
+  <label>URL de imagen<input name="imagen_url" value="<%= material.imagen_url || '' %>" /></label>
+  <label>Descripcion<textarea name="descripcion" rows="5"><%= material.descripcion || '' %></textarea></label>
+  <label class="checkbox">
+    <input type="checkbox" name="disponible" <%= material.disponible ? 'checked' : '' %> /> Disponible en el catalogo
+  </label>
+  <div class="acciones">
+    <button type="submit">Guardar</button>
+    <a href="/admin">Cancelar</a>
+  </div>
+</form>
+<%- include('../partials/foot') %>
