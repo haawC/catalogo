@@ -2,7 +2,7 @@
 
 Sitio web en Express + MySQL que muestra 6 materiales al azar en cada carga y ofrece un panel de administración para dar de alta, editar y eliminar recursos.
 
-¿Primera vez? Sigue la [guía paso a paso](GUIA_LOCAL.md).
+¿Primera vez? Sigue la [guía paso a paso](GUIA_LOCAL.md) (o la [guía para Windows](GUIA_WINDOWS.md)).
 
 ## Requisitos
 
